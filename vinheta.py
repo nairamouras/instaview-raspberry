@@ -1,5 +1,5 @@
 from moviepy.editor import VideoFileClip, ColorClip, TextClip, CompositeVideoClip
-from videoFinal import loop
+#from videoFinal import loop
 
 #Função que retorna a velocidade e a posição da vinheta no vídeo
 def pos(time):
@@ -25,5 +25,5 @@ def criaVinheta():
     #Salva o resultado
     compose.write_videofile('com_vinheta.mp4')
     #Chamada da função que gera um pré loop do vídeo com a vinheta
-    loop()
+    #loop()
     return

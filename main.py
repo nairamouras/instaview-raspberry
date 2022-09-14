@@ -10,7 +10,8 @@ from playlist import importacaoPlaylist
 
 files = []
 path_instagram = './ifmtcuiabaoficial'
-video = 'videoFinal.mp4'
+video = 'com_vinheta.mp4'
+path_noticias = 'noticias-ifmt.csv'
 doTrashCode = False
 video_player = vlc.MediaPlayer(video)
 media_player = vlc.MediaListPlayer()
@@ -23,10 +24,9 @@ if (os.path.exists(path_instagram)):
         files.extend(filenames)
         break
     #Para verificar a validade, é necessário verificar a última data de modificação de apenas um arquivo
-    arq = os.path.join(path_instagram, files[0]) 
-    fmt = '%d-%m-%Y'
-    dataDoDiretorio = os.path.getmtime(arq)
-    dataArquivo = date.fromtimestamp(dataDoDiretorio)
+    path = os.path.join(path_instagram, files[0]) 
+    dataDiretorio = os.path.getmtime(path)
+    dataArquivo = date.fromtimestamp(dataDiretorio)
     dataHoje = date.today()
     quantidade_dias = (dataHoje - dataArquivo).days
     if (quantidade_dias > 5):
@@ -35,7 +35,15 @@ if (os.path.exists(path_instagram)):
         importacaoInstagram()
     elif (quantidade_dias <= 5):
         #Se ainda estiver dentro da validade, executa apenas a importação das últimas notícias para a criação de uma nova vinheta
-        importacaoNoticias()
+        if (os.path.exists(path_noticias)):
+            dataDiretorio = os.path.getmtime(path_noticias)
+            dataArquivo = date.fromtimestamp(dataDiretorio)
+            if (dataHoje != dataArquivo):
+               importacaoNoticias() 
+            else:
+                pass
+        else:
+            importacaoNoticias()
 else:
     #Inicia a primeira importação, se a pasta ainda não existe
     importacaoInstagram()

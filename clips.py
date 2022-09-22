@@ -14,7 +14,7 @@ def criaClips():
     path_videos = 'videos'
     qtd_imagens_insta = 0
     qtd_imagens_dep = 0
-    tempo_base = 7
+    tempo_base = 6
     fps = 30
     for (dirpath, dirnames, filenames_insta) in walk(path_pasta_instagram):
         files_insta.extend(filenames_insta)

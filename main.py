@@ -5,7 +5,6 @@ from noticias import importacaoNoticias
 import vlc
 from playlist import importacaoPlaylist
 from github import exclusaoRepo, importacaoGit
-from clips import criaClips
 
 videos = []
 path_instagram = 'ifmtcuiabaoficial'
@@ -28,7 +27,6 @@ if(os.path.exists(path_videos)):
 if(os.path.exists(path_instagram)):
     shutil.rmtree(path_instagram)
 importacaoInstagram()
-criaClips()
 
 doTrashCode = False
 

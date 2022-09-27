@@ -11,7 +11,7 @@ def importacaoInstagram():
     profile = Profile.from_username(L.context, PROFILE)
     post_sorted = sorted(profile.get_posts(),key=lambda post: post.likes, reverse=True)
     for post in post_sorted:
-        if post.date > data_inicio or post.is_pinned:
+        if post.date >= data_inicio or post.is_pinned:
             L.download_post(post,PROFILE)
     #Chamada para a função de correção da pasta com os arquivos do Instagram
     correcaoPasta()

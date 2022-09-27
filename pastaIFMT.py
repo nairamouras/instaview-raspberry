@@ -15,7 +15,6 @@ def correcaoPasta():
         if files[i].endswith('.mp4'):
             aux = os.path.splitext(files[i])
             auxi = []
-            print(aux)
             for j in range(tamanho):
                 if files[j].endswith('.jpg'):
                     auxi = os.path.splitext(files[j])
@@ -23,7 +22,6 @@ def correcaoPasta():
                     if auxi[0] == aux[0]:
                         lix = os.path.join(path, files[j])
                         if os.path.isfile(files[j]) == False:
-                            print(lix)
                             os.remove(lix)
                             aux = []
                     auxi = []

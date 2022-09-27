@@ -31,6 +31,10 @@ def criaClips():
                 video = VideoFileClip(os.path.join(path_pasta_instagram, files_insta[i]))
                 new = video.without_audio()
                 new.write_videofile(os.path.join(path_videos, files_insta[i]))
+            else:
+                video = VideoFileClip(os.path.join(path_pasta_instagram, files_insta[i]))
+                new = video.without_audio()
+                new.write_videofile(os.path.join(path_videos, files_insta[i]))
     for (dirpath, dirnames, filenames_dep) in walk(path_pasta_dep):
         files_dep.extend(filenames_dep)
         break
@@ -43,6 +47,10 @@ def criaClips():
         elif files_dep[i].endswith('.mp4'):
             if not os.path.exists(path_videos):
                 os.makedirs(path_videos)
+                video = VideoFileClip(os.path.join(path_pasta_dep, files_dep[i]))
+                new = video.without_audio()
+                new.write_videofile(os.path.join(path_videos, files_dep[i]))
+            else:
                 video = VideoFileClip(os.path.join(path_pasta_dep, files_dep[i]))
                 new = video.without_audio()
                 new.write_videofile(os.path.join(path_videos, files_dep[i]))

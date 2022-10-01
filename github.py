@@ -4,7 +4,7 @@ import os
 
 def importacaoGit():
     path = 'dep'
-    Repo.clone_from("https://github.com/nairamouras/teste-instaview-dep", path)
+    Repo.clone_from("https://github.com/nairamouras/instaview-dep", path)
     return
 
 def exclusaoRepo(path):

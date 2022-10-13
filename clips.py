@@ -1,7 +1,7 @@
 from os import walk
 from moviepy.editor import *
 import os
-from concatenacao import concatenaClips
+from concatenacao1 import concatenaClips
 
 #Função responsável por criar os primeiros clips de vídeo, das imagens da pasta do Instagram e da pasta dos departamentos
 def criaClips():

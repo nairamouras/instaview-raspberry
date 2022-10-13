@@ -9,7 +9,7 @@ from github import exclusaoRepo, importacaoGit
 path_instagram = 'ifmtcuiabaoficial'
 video = 'concatenados_final.mp4'
 path_dep = 'dep'
-'''
+
 if os.path.exists('clip-imagens-insta.mp4'):  
     os.remove('clip-imagens-insta.mp4')
 if os.path.exists('clip-imagens-dep.mp4'):  
@@ -24,7 +24,7 @@ importacaoGit()
 if(os.path.exists(path_instagram)):
     shutil.rmtree(path_instagram)
 importacaoInstagram()
-'''
+
 doTrashCode = False
 
 video_player = vlc.MediaPlayer(video)
@@ -50,7 +50,7 @@ def onEnd(event):
     return
 
 def back():
-    video_player.set_media(player.get_media())
+    video_player.set_media(video_player.get_media())
     video_player.play()
     return
 

@@ -25,6 +25,8 @@ if(os.path.exists(path_instagram)):
     shutil.rmtree(path_instagram)
 importacaoInstagram()
 
+os.system("sudo shutdown -r 06:00")
+
 doTrashCode = False
 
 video_player = vlc.MediaPlayer(video)

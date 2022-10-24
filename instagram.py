@@ -15,4 +15,3 @@ def importacaoInstagram():
             L.download_post(post,PROFILE)
     #Chamada para a função de correção da pasta com os arquivos do Instagram
     correcaoPasta()
-    return

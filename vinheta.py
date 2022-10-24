@@ -25,4 +25,3 @@ def criaVinheta(arq):
     compose = CompositeVideoClip([video, cor_texto])
     #Salva o resultado
     compose.write_videofile(os.path.join(path, 'com-vinheta.mp4'))
-    return

@@ -99,4 +99,3 @@ def criaClips():
         #Salva o clip
         concat_clip_image_insta.write_videofile('clip-imagens-insta.mp4', fps=fps)
         concatenaClips('clip-imagens-insta.mp4', None)
-    return

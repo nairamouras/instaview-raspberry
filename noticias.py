@@ -21,4 +21,3 @@ def importacaoNoticias():
     news.to_csv('noticias.csv', index=False)
     #Chamada da função de correção das falhas no arquivo .csv
     correcaoCSV()
-    return

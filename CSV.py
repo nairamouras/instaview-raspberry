@@ -22,4 +22,3 @@ def correcaoCSV():
     #Exclui o arquivo .csv antigo, se ele existir
     if os.path.exists('noticias.csv'):  
         os.remove('noticias.csv')
-    return

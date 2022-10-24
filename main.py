@@ -43,18 +43,15 @@ def start():
     em = video_player.event_manager()
     em.event_attach(vlc.EventType.MediaPlayerEndReached, onEnd)
     video_player.play()
-    return
 
 def onEnd(event):
     global doTrashCode
     if event.type == vlc.EventType.MediaPlayerEndReached:
         doTrashCode = True
-    return
 
 def back():
     video_player.set_media(video_player.get_media())
     video_player.play()
-    return
 
 start()
 

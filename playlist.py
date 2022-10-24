@@ -10,4 +10,3 @@ def importacaoPlaylist():
     #URL da playlist Web Rádio do IFMT
     file_url = 'https://player.hdradios.net/player/6990'
     wget.download(file_url , playlist)
-    return

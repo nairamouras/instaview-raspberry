@@ -10,5 +10,3 @@ def importacaoGit():
 def exclusaoRepo(path):
     if os.path.exists(path):
         git.rmtree(path)
-    return
-    

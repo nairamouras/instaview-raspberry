@@ -27,4 +27,3 @@ def correcaoPasta():
                     auxi = []
     #Após a correção, inicia a chamada para a criação dos primeiros clips de vídeo
     criaClips()
-    return

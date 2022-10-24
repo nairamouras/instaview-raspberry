@@ -17,4 +17,3 @@ def concatenaFinal():
     final.write_videofile('concatenados_final.mp4', fps=fps)
     #Chamada para a criação da vinheta
     #criaVinheta(video)
-    return

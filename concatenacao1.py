@@ -25,4 +25,3 @@ def concatenaClips(video_insta, video_dep):
         #Salva o resultado da concatenação dos dois clips
         final.write_videofile(os.path.join(path, video), fps=fps)
     concatenaFinal()
-    return

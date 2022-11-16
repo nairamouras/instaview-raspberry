@@ -5,9 +5,13 @@ import instagram
 import vlc
 import playlist
 import github
+import ctypes
 
 #Função que inicia a reprodução do vídeo e da playlist da rádio
 def start():
+    ctypes.CDLL('libX11.so.6').XInitThreads()
+    media_player = vlc.MediaListPlayer()
+    playlist_player = vlc.Instance()
     media_list = playlist_player.media_list_new()
     media = playlist_player.media_new('playlist.pls')
     media_list.add_media(media)
@@ -25,9 +29,9 @@ def onEnd(event):
         doTrashCode = True
 
 #Função responsável por iniciar o vídeo novamente, ativando o loop
-async def back():
+def back():
     video_player.set_media(video_player.get_media())
-    await video_player.play()
+    video_player.play()
 
 if __name__ == '__main__':
 
@@ -63,13 +67,11 @@ if __name__ == '__main__':
     doTrashCode = False
 
     video_player = vlc.MediaPlayer(video)
-    media_player = vlc.MediaListPlayer()
-    playlist_player = vlc.Instance()
 
     start()
 
     #Loop de reprodução do vídeo e da playlist
-    while media_player.is_playing:
+    while True:
         if doTrashCode:
             back()
             doTrashCode = False

@@ -62,7 +62,7 @@ if __name__ == '__main__':
     instagram.download_instagram()
 
     #Define um horário para a reinicialização do sistema
-    #os.system("sudo shutdown -r 06:00")
+    os.system("sudo shutdown -r 06:00")
 
     doTrashCode = False
 

@@ -34,6 +34,12 @@ def back():
     video_player.play()
 
 if __name__ == '__main__':
+    
+    #Executa um comando no terminal para minimizar a tela
+    comando = 'xdotool getactivewindow'
+    shell = os.popen(comando)
+    codigo_tela = str(shell.read())
+    os.system('xdotool windowminimize ' + codigo_tela)
 
     path_instagram = 'ifmtcuiabaoficial'
     video = 'video_final.mp4'

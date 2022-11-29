@@ -55,7 +55,7 @@ if __name__ == '__main__':
         os.remove('video_final.mp4')
     if os.path.exists(path_videos):  
         shutil.rmtree(path_videos)
-   os.mkdir(path_videos)
+    os.mkdir(path_videos)
 
     #Chama a função de download da playlist da rádio
     playlist.download_playlist()

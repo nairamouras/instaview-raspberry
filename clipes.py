@@ -22,13 +22,12 @@ def cria_clipes():
     tamanho_files_insta = len(files_insta)
     #Cria uma lista com as imagens da pasta do Instagram
     for i in range(tamanho_files_insta):
-        if files_insta[i].endswith('.jpg'):
+        if files_insta[i].endswith('.jpg') or files_insta[i].endswith('.png'):
             qtd_imagens_insta+=1
             images_list_insta.append(os.path.join(path_pasta_instagram, files_insta[i]))
         #Os videos são salvos em outro diretório
         elif files_insta[i].endswith('.mp4'):
-            if not os.path.exists(path_videos):
-                os.makedirs(path_videos)
+            if os.path.exists(path_videos):
                 video = VideoFileClip(os.path.join(path_pasta_instagram, files_insta[i]))
                 new = video.without_audio()
                 new.write_videofile(os.path.join(path_videos, files_insta[i]))
@@ -42,13 +41,12 @@ def cria_clipes():
     tamanho_files_git = len(files_git)
     #Cria uma lista com as imagens da pasta do GitHub
     for i in range(tamanho_files_git):
-        if files_git[i].endswith('.jpg'):
+        if files_git[i].endswith('.jpg') or files_git[i].endswith('.png'):
             qtd_imagens_git+=1
             images_list_git.append(os.path.join(path_pasta_git, files_git[i]))
         #Os videos são salvos em outro diretório
         elif files_git[i].endswith('.mp4'):
-            if not os.path.exists(path_videos):
-                os.makedirs(path_videos)
+            if os.path.exists(path_videos):
                 video = VideoFileClip(os.path.join(path_pasta_git, files_git[i]))
                 new = video.without_audio()
                 new.write_videofile(os.path.join(path_videos, files_git[i]))

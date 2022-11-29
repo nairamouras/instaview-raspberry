@@ -44,6 +44,7 @@ if __name__ == '__main__':
     path_instagram = 'ifmtcuiabaoficial'
     video = 'video_final.mp4'
     path_git = 'github'
+    path_videos = 'videos'
 
     #Exclui todos os vídeos criados anteriormente para não ocorrer conflitos
     if os.path.exists('clipe-imagens-insta.mp4'):  
@@ -52,6 +53,9 @@ if __name__ == '__main__':
         os.remove('clipe-imagens-git.mp4')
     if os.path.exists('video_final.mp4'):  
         os.remove('video_final.mp4')
+    if os.path.exists(path_videos):  
+        shutil.rmtree(path_videos)
+   os.mkdir(path_videos)
 
     #Chama a função de download da playlist da rádio
     playlist.download_playlist()
@@ -63,7 +67,7 @@ if __name__ == '__main__':
     github.git_clone()
 
     #Se existir, exclui a pasta do Instagram e realiza um novo download
-    if(os.path.exists(path_instagram)):
+    if os.path.exists(path_instagram):
         shutil.rmtree(path_instagram)
     instagram.download_instagram()
 

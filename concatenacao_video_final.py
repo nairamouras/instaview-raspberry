@@ -17,4 +17,4 @@ def concatenacao_final():
     final = concatenate_videoclips(clipes, method = 'compose')
     final.write_videofile(video_final, fps=fps)
     #Chama a função de criação da vinheta
-    #vinheta.cria_vinheta(video)
+    #vinheta.cria_vinheta(video_final)

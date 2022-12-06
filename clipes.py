@@ -125,4 +125,3 @@ def cria_clipes():
         clipe_insta.write_videofile(os.path.join(path_videos, video), fps=fps)
         #Chama a função resposável por concatenar o clipe criado
         #concatenacao_video_final.concatenacao_final()
-

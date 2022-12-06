@@ -10,17 +10,22 @@ import ctypes
 #Função que inicia a reprodução do vídeo e da playlist da rádio
 def start():
     ctypes.CDLL('libX11.so.6').XInitThreads()
-    media_player = vlc.MediaListPlayer()
-    playlist_player = vlc.Instance()
+    global i
     media_list = playlist_player.media_list_new()
-    media = playlist_player.media_new('playlist.pls')
-    media_list.add_media(media)
-    media_player.set_media_list(media_list)
+    media = playlist_player.media_new('playlist.pls') 
+    media_list.add_media(media) 
+    media_player.set_media_list(media_list) 
     media_player.play()
-    video_player.set_fullscreen(True)
-    em = video_player.event_manager()
+    for vid in videos:
+        video = playlist_videos_player.media_new(vid)
+        video_list.add_media(video)
+        video_player.set_media_list(video_list)
+    new_player = video_player.get_media_player()
+    new_player.set_fullscreen(False)
+    em = new_player.event_manager()
     em.event_attach(vlc.EventType.MediaPlayerEndReached, onEnd)
-    video_player.play()
+    video_player.play_item_at_index(0)
+    i+=1
 
 #Função responsável por verificar se a reprodução do video está chegando ao fim
 def onEnd(event):
@@ -30,8 +35,13 @@ def onEnd(event):
 
 #Função responsável por iniciar o vídeo novamente, ativando o loop
 def back():
-    video_player.set_media(video_player.get_media())
-    video_player.play()
+    global i
+    if i <= tamanho-1:
+        video_player.next()
+        i+=1
+    else:
+        video_player.play_item_at_index(0)
+        i = 0
 
 if __name__ == '__main__':
     
@@ -51,7 +61,6 @@ if __name__ == '__main__':
     #video_vinheta = 'video_final_vinheta.mp4'
 
     #Exclui todos os vídeos criados anteriormente para não ocorrer conflitos
-
     if os.path.exists(video_imagens_insta):  
         os.remove(video_imagens_insta)
     if os.path.exists(video_imagens_git):  
@@ -63,7 +72,7 @@ if __name__ == '__main__':
     if os.path.exists(path_videos):  
         shutil.rmtree(path_videos)
     os.mkdir(path_videos)
-
+    
     #Chama a função de download da playlist da rádio
     playlist.download_playlist()
     #Chama a função de raspagem dos títulos de notícias do site
@@ -72,16 +81,25 @@ if __name__ == '__main__':
     github.exclui_repositorio(path_git)
     #Chama a função para clonar o repositório remoto
     github.git_clone()
-
+    
     #Se existir, exclui a pasta do Instagram e realiza um novo download
     if os.path.exists(path_instagram):
         shutil.rmtree(path_instagram)
     instagram.download_instagram()
     clipes.cria_clipes()
-
+    
+    videos = []
     doTrashCode = False
-
-    video_player = vlc.MediaPlayer(video_final)
+    for vid in os.listdir(path_videos):
+        videos.append(os.path.join(path_videos, vid))
+    
+    video_player = vlc.MediaListPlayer()
+    playlist_videos_player = vlc.Instance()
+    video_list = playlist_videos_player.media_list_new()
+    media_player = vlc.MediaListPlayer()
+    playlist_player = vlc.Instance()
+    i = 0
+    tamanho = len(videos)
 
     start()
 

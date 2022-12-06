@@ -2,7 +2,7 @@ from moviepy.editor import VideoFileClip, ColorClip, TextClip, CompositeVideoCli
 
 #Função que retorna a velocidade e a posição da vinheta no vídeo
 def pos(time):
-    return (time, 'bottom')
+    return (time*-350, 'bottom')
 #Função que cria a vinheta e realiza a composição dela no video final
 def cria_vinheta(arquivo):
     video = VideoFileClip(arquivo)

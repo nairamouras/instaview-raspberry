@@ -77,7 +77,6 @@ if __name__ == '__main__':
     if os.path.exists(path_instagram):
         shutil.rmtree(path_instagram)
     instagram.download_instagram()
-    clipes.cria_clipes()
 
     doTrashCode = False
 

@@ -1,5 +1,4 @@
 from moviepy.editor import VideoFileClip, ColorClip, TextClip, CompositeVideoClip
-import os
 
 #Função que retorna a velocidade e a posição da vinheta no vídeo
 def pos(time):

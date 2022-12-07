@@ -58,7 +58,7 @@ if __name__ == '__main__':
     insta_git_concatenados = 'clipes_concatenados.mp4'
     video_imagens_insta = 'clipe_imagens_insta.mp4'
     video_imagens_git = 'clipe_imagens_git.mp4'
-    #video_vinheta = 'video_final_vinheta.mp4'
+    video_vinheta = 'video_final_vinheta.mp4'
 
     #Exclui todos os vídeos criados anteriormente para não ocorrer conflitos
     if os.path.exists(video_imagens_insta):  

@@ -71,6 +71,8 @@ if __name__ == '__main__':
         os.remove(insta_git_concatenados)
     if os.path.exists(path_videos):  
         shutil.rmtree(path_videos)
+    if os.path.exists(video_vinheta):
+        os.remove(video_vinheta)
     os.mkdir(path_videos)
     
     #Chama a função de download da playlist da rádio

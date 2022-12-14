@@ -96,7 +96,7 @@ def cria_clipes():
         clipe_insta = VideoFileClip('clipe_imagens_insta.mp4').resize((1200,800))
         #clipes = clips_array([[clipe_git,clipe_insta]])
         clipes = concatenate_videoclips([clipe_git, clipe_insta], method = 'compose')
-        clipes.write_videofile(os.path.join(path_videos, video), fps=fps)
+        clipes.write_videofile(os.path.join(path_videos, 'clipes_concatenados.mp4'), fps=fps)
         #Chama a função responsável por concatenar os clipes criados
         #concatenacao_video_final.concatenacao_final()
 

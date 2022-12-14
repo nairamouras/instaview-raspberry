@@ -12,9 +12,6 @@ def cria_clipes():
     path_pasta_instagram = 'ifmtcuiabaoficial'
     path_pasta_git = 'github'
     path_videos = 'videos'
-    video = 'clipes_concatenados.mp4'
-    video_git = 'clipe_imagens_git.mp4'
-    video_insta = 'clipe_imagens_insta.mp4'
     qtd_imagens_insta = 0
     qtd_imagens_git = 0
     tempo_base = 6

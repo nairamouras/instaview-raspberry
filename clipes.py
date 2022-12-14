@@ -106,8 +106,8 @@ def cria_clipes():
         clipe_imagens_git = [ImageClip(n).set_duration(tempo_base) for n in images_list_git] 
         concat_clipe_imagens_git = concatenate_videoclips(clipe_imagens_git, method = 'compose')     
         clipe_git = concat_clipe_imagens_git.resize((1200,800))
-        #clipe_git.write_videofile(os.path.join(path_videos, video), fps=fps)
-        clipe_git.write_videofile(video, fps=fps)
+        clipe_git.write_videofile(os.path.join(path_videos, video), fps=fps)
+        #clipe_git.write_videofile(video, fps=fps)
         #Chama a função responsável por concatenar o clipe criado
         #concatenacao_video_final.concatenacao_final()
 
@@ -117,7 +117,7 @@ def cria_clipes():
         clipe_imagens_insta = [ImageClip(m).set_duration(tempo_base) for m in images_list_insta]  
         concat_clipe_imagens_insta = concatenate_videoclips(clipe_imagens_insta, method = 'compose')
         clipe_insta = concat_clipe_imagens_insta.resize((1200,800))
-        #clipe_insta.write_videofile(os.path.join(path_videos, video), fps=fps)
-        clipe_insta.write_videofile(video, fps=fps)
+        clipe_insta.write_videofile(os.path.join(path_videos, video), fps=fps)
+        #clipe_insta.write_videofile(video, fps=fps)
         #Chama a função resposável por concatenar o clipe criado
         #concatenacao_video_final.concatenacao_final()

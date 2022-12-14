@@ -104,12 +104,10 @@ def cria_clipes():
     elif qtd_imagens_git > 0 and qtd_imagens_insta == 0:
         #Cria um clipe com as imagens do GitHub, definindo seu tempo de tela
         clipe_imagens_git = [ImageClip(n).set_duration(tempo_base) for n in images_list_git] 
-        concat_clipe_imagens_git = concatenate_videoclips(clipe_imagens_git, method = 'compose')
-        #Salva o clipe
-        concat_clipe_imagens_git.write_videofile(video_git, fps=fps)
-        
-        clipe_git = VideoFileClip(video_git).resize((1200,800))
-        clipe_git.write_videofile(os.path.join(path_videos, video), fps=fps)
+        concat_clipe_imagens_git = concatenate_videoclips(clipe_imagens_git, method = 'compose')     
+        clipe_git = concat_clipe_imagens_git.resize((1200,800))
+        #clipe_git.write_videofile(os.path.join(path_videos, video), fps=fps)
+        clipe_git.write_videofile(video, fps=fps)
         #Chama a função responsável por concatenar o clipe criado
         #concatenacao_video_final.concatenacao_final()
 
@@ -118,10 +116,8 @@ def cria_clipes():
         #Cria um clipe com as imagens do Instagram, definindo seu tempo de tela
         clipe_imagens_insta = [ImageClip(m).set_duration(tempo_base) for m in images_list_insta]  
         concat_clipe_imagens_insta = concatenate_videoclips(clipe_imagens_insta, method = 'compose')
-        #Salva o clipe
-        concat_clipe_imagens_insta.write_videofile(video_insta, fps=fps)
-        
-        clipe_insta = VideoFileClip(video_insta).resize((1200,800))
-        clipe_insta.write_videofile(os.path.join(path_videos, video), fps=fps)
+        clipe_insta = concat_clipe_imagens_insta.resize((1200,800))
+        #clipe_insta.write_videofile(os.path.join(path_videos, video), fps=fps)
+        clipe_insta.write_videofile(video, fps=fps)
         #Chama a função resposável por concatenar o clipe criado
         #concatenacao_video_final.concatenacao_final()

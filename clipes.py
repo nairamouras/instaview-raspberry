@@ -82,18 +82,18 @@ def cria_clipes():
         clipe_imagens_insta = [ImageClip(m).set_duration(tempo_base) for m in images_list_insta]
         concat_clipe_imagens_insta = concatenate_videoclips(clipe_imagens_insta, method = 'compose')
         #Salva o clipe
-        concat_clipe_imagens_insta.write_videofile(video_insta, fps=fps)
+        concat_clipe_imagens_insta.write_videofile('clipe_imagens_insta.mp4', fps=fps)
         #Cria um clipe com as imagens do GitHub, definindo seu tempo de tela
         #clipe_imagens_git = [ImageClip(n).set_duration(tempo_git) for n in images_list_git]
         clipe_imagens_git = [ImageClip(n).set_duration(tempo_base) for n in images_list_git]
         concat_clipe_imagens_git = concatenate_videoclips(clipe_imagens_git, method = 'compose')
         #Salva o clipe
-        concat_clipe_imagens_git.write_videofile(video_git, fps=fps)
+        concat_clipe_imagens_git.write_videofile('clipe_imagens_git.mp4', fps=fps)
         
         #clipe_git = VideoFileClip('clipe_imagens_git.mp4').margin(10)
         #clipe_insta = VideoFileClip('clipe_imagens_insta.mp4').margin(10)
-        clipe_git = VideoFileClip(video_git).resize((1200,800))
-        clipe_insta = VideoFileClip(video_insta).resize((1200,800))
+        clipe_git = VideoFileClip('clipe_imagens_git.mp4').resize((1200,800))
+        clipe_insta = VideoFileClip('clipe_imagens_insta.mp4').resize((1200,800))
         #clipes = clips_array([[clipe_git,clipe_insta]])
         clipes = concatenate_videoclips([clipe_git, clipe_insta], method = 'compose')
         clipes.write_videofile(os.path.join(path_videos, video), fps=fps)

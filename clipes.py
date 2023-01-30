@@ -103,7 +103,7 @@ def cria_clipes():
         clipe_imagens_git = [ImageClip(n).set_duration(tempo_base) for n in images_list_git] 
         concat_clipe_imagens_git = concatenate_videoclips(clipe_imagens_git, method = 'compose')     
         clipe_git = concat_clipe_imagens_git.resize((1200,800))
-        clipe_git.write_videofile(os.path.join(path_videos, 'clipes_concatenados.mp4', fps=fps)
+        clipe_git.write_videofile(os.path.join(path_videos, 'clipes_concatenados.mp4'), fps=fps)
         #Chama a função responsável por concatenar o clipe criado
         #concatenacao_video_final.concatenacao_final()
 

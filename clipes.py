@@ -31,10 +31,6 @@ def cria_clipes():
                 video = VideoFileClip(os.path.join(path_pasta_instagram, files_insta[i]))
                 new = video.without_audio()
                 new.write_videofile(os.path.join(path_videos, files_insta[i]))
-            else:
-                video = VideoFileClip(os.path.join(path_pasta_instagram, files_insta[i]))
-                new = video.without_audio()
-                new.write_videofile(os.path.join(path_videos, files_insta[i]))
     for (dirpath, dirnames, filenames_git) in walk(path_pasta_git):
         files_git.extend(filenames_git)
         break
@@ -47,10 +43,6 @@ def cria_clipes():
         #Os videos são salvos em outro diretório
         elif files_git[i].endswith('.mp4'):
             if os.path.exists(path_videos):
-                video = VideoFileClip(os.path.join(path_pasta_git, files_git[i]))
-                new = video.without_audio()
-                new.write_videofile(os.path.join(path_videos, files_git[i]))
-            else:
                 video = VideoFileClip(os.path.join(path_pasta_git, files_git[i]))
                 new = video.without_audio()
                 new.write_videofile(os.path.join(path_videos, files_git[i]))

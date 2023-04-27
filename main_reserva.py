@@ -1,7 +1,7 @@
 import os
 import shutil
 import instagram
-#import noticias
+import noticias
 import vlc
 import playlist
 import github
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     #Chama a função de download da playlist da rádio
     playlist.download_playlist()
     #Chama a função de raspagem dos títulos de notícias do site
-    #noticias.scraping_noticias()
+    noticias.scraping_noticias()
     #Chama a função que exclui o diretório local do GitHub clonado anteriormente
     github.exclui_repositorio(path_git)
     #Chama a função para clonar o repositório remoto

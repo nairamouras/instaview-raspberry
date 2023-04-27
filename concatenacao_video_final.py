@@ -1,6 +1,6 @@
 from moviepy.editor import *
 import os
-#import vinheta
+import vinheta
 
 def concatenacao_final():
     fps = 30
@@ -17,4 +17,4 @@ def concatenacao_final():
     final = concatenate_videoclips(clipes, method = 'compose')
     final.write_videofile(video_final, fps=fps)
     #Chama a função de criação da vinheta
-    #vinheta.cria_vinheta(video_final)
+    vinheta.cria_vinheta(video_final)

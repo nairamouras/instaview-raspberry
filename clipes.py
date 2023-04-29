@@ -45,7 +45,8 @@ def cria_clipes():
             if os.path.exists(path_videos):
                 video = VideoFileClip(os.path.join(path_pasta_git, files_git[i]))
                 new = video.without_audio()
-                new.write_videofile(os.path.join(path_videos, files_git[i]))
+                new1 = new.resize((3840,2160))
+                new1.write_videofile(os.path.join(path_videos, files_git[i]))
     
     #Se a quantidade de imagens do Instagram for maior, elas que irão definir o tempo de duração do vídeo (tempo_base*qtd_imagens_insta)
     #E cada imagem do GitHub terá uma duração definida pelo produto entre a quantidade de vezes que é menor e o tempo base (6 segundos)
